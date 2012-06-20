@@ -19,9 +19,9 @@ Provides methods
 
 and 
 
-   - (void)setContentOffset:(CGPoint)contentOffset 
-         withTimingFunction:(CAMediaTimingFunction *)timingFunction
-                   duration:(CFTimeInterval)duration;
+    - (void)setContentOffset:(CGPoint)contentOffset 
+          withTimingFunction:(CAMediaTimingFunction *)timingFunction
+                    duration:(CFTimeInterval)duration
 
 
 Usage
