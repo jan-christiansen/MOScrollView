@@ -27,10 +27,13 @@ and
 Usage
 -----
 
-Simply import `MOScrollView.h` and `MOScrollView.m` into your project. As the
-class uses automatic refernce counting either your project has to use automatic
-reference counting as well or you have to enable automatic reference counting for
-`MOScrollView.m` by adding `-fobjc-arc` as compiler flag in Build Phases options.
+Simply import `MOScrollView.h` and `MOScrollView.m` into your
+project. The implementation uses a `CADisplayLink`, therefore, you
+have to add the `QuartzCore` library to your project. As the class
+uses automatic refernce counting either your project has to use
+automatic reference counting as well or you have to enable automatic
+reference counting for `MOScrollView.m` by adding `-fobjc-arc` as
+compiler flag in Build Phases options.
 
 
 Requirements
