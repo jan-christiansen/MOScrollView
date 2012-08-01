@@ -3,7 +3,6 @@
 //  MOScrollView
 //
 //  Created by Jan Christiansen on 6/20/12.
-//
 //  Copyright (c) 2012, Monoid - Development and Consulting - Jan Christiansen
 //
 //  All rights reserved.
@@ -40,7 +39,7 @@
 #import <UIKit/UIKit.h>
 
 
-/** 
+/**
  *  Subclass of UIScrollView that, in contrast to UIScrollView, uses a custom
  *  timing function to animate setContentOffset.
  *
@@ -54,25 +53,25 @@
  *  Sets the contentOffset of the ScrollView and animates the transition. The
  *  animation takes 0.25 seconds.
  *
- * @param contentOffset  A point (expressed in points) that is offset from the 
+ * @param contentOffset  A point (expressed in points) that is offset from the
  *                       content view’s origin.
  * @param timingFunction A timing function that defines the pacing of the
  *                       animation.
  */
-- (void)setContentOffset:(CGPoint)contentOffset 
+- (void)setContentOffset:(CGPoint)contentOffset
       withTimingFunction:(CAMediaTimingFunction *)timingFunction;
 
 
 /**
- *  Sets the contentOffset of the ScrollView and animates the transition. 
+ *  Sets the contentOffset of the ScrollView and animates the transition.
  *
- * @param contentOffset  A point (expressed in points) that is offset from the 
+ * @param contentOffset  A point (expressed in points) that is offset from the
  *                       content view’s origin.
  * @param timingFunction A timing function that defines the pacing of the
  *                       animation.
  * @param duration       Duration of the animation in seconds.
  */
-- (void)setContentOffset:(CGPoint)contentOffset 
+- (void)setContentOffset:(CGPoint)contentOffset
       withTimingFunction:(CAMediaTimingFunction *)timingFunction
                 duration:(CFTimeInterval)duration;
 
