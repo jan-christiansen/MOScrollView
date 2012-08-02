@@ -130,6 +130,11 @@ const static int maximumSteps = 10;
                                             _beginContentOffset.y + currentDeltaContentOffset.y);
 
         self.contentOffset = contentOffset;
+
+        if (adjustedRatio == 1) {
+            // inform delegate about end of animation
+            [self.delegate scrollViewDidEndScrollingAnimation:self];
+        }
     }
 }
 
