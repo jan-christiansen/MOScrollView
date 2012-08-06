@@ -87,8 +87,9 @@ const static int maximumSteps = 10;
                                       contentOffset.y - self.contentOffset.y);
 
     if (!_displayLink) {
-        _displayLink = [CADisplayLink displayLinkWithTarget:self
-                                               selector:@selector(updateContentOffset:)];
+        _displayLink = [CADisplayLink
+                        displayLinkWithTarget:self
+                        selector:@selector(updateContentOffset:)];
         _displayLink.frameInterval = 1;
     }
     [_displayLink addToRunLoop:[NSRunLoop currentRunLoop]
@@ -140,7 +141,6 @@ const static int maximumSteps = 10;
     }
 }
 
-
 double cubicFunctionValue(double a, double b, double c, double d, double x) {
 
     return (a*x*x*x)+(b*x*x)+(c*x)+d;
@@ -152,10 +152,10 @@ double cubicDerivativeValue(double a, double b, double c, double d, double x) {
     return (3*a*x*x)+(2*b*x)+c;
 }
 
-double rootOfCubic(double a, double b, double c, double d) {
+double rootOfCubic(double a, double b, double c, double d, double startPoint) {
 
     // we use 0 as start point as the root will be in the interval [0,1]
-    double x = 0;
+    double x = startPoint;
     double lastX = 1;
 
     // approximate a root by using the Newton-Raphson method
@@ -181,11 +181,11 @@ double timingFunctionValue(CAMediaTimingFunction *function, double x) {
     [function getControlPointAtIndex:2 values:c];
     [function getControlPointAtIndex:3 values:d];
 
-    // look for t value that corresponds to provided x 
-    double t = rootOfCubic(a[0]+3*b[0]-3*c[0]+d[0], 3*a[0]-6*b[0]+3*c[0], 3*a[0]+3*b[0], a[0]-x);
+    // look for t value that corresponds to provided x
+    double t = rootOfCubic(-a[0]+3*b[0]-3*c[0]+d[0], 3*a[0]-6*b[0]+3*c[0], -3*a[0]+3*b[0], a[0]-x, x);
 
     // return corresponding y value
-    double y = cubicFunctionValue(a[1]+3*b[1]-3*c[1]+d[1], 3*a[1]-6*b[1]+3*c[1], 3*a[1]+3*b[1], a[1], t);
+    double y = cubicFunctionValue(-a[1]+3*b[1]-3*c[1]+d[1], 3*a[1]-6*b[1]+3*c[1], -3*a[1]+3*b[1], a[1], t);
 
     return y;
 }
