@@ -76,7 +76,6 @@ const static int maximumSteps = 10;
                   duration:kDefaultSetContentOffsetDuration];
 }
 
-
 - (void)setContentOffset:(CGPoint)contentOffset
       withTimingFunction:(CAMediaTimingFunction *)timingFunction
                 duration:(CFTimeInterval)duration {
@@ -87,9 +86,11 @@ const static int maximumSteps = 10;
     _deltaContentOffset = CGPointMake(contentOffset.x - self.contentOffset.x,
                                       contentOffset.y - self.contentOffset.y);
 
-    _displayLink = [CADisplayLink displayLinkWithTarget:self
+    if (!_displayLink) {
+        _displayLink = [CADisplayLink displayLinkWithTarget:self
                                                selector:@selector(updateContentOffset:)];
-    _displayLink.frameInterval = 1;
+        _displayLink.frameInterval = 1;
+    }
     [_displayLink addToRunLoop:[NSRunLoop currentRunLoop]
                        forMode:NSDefaultRunLoopMode];
 }
@@ -120,6 +121,7 @@ const static int maximumSteps = 10;
 
             adjustedRatio = 1;
             [_displayLink invalidate];
+            _displayLink = nil;
             _beginTime = 0;
         }
 
