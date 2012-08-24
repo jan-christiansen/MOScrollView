@@ -17,6 +17,7 @@
 		0188C97B1591AFF7004A499F /* MOScrollView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MOScrollView-Prefix.pch"; sourceTree = "<group>"; };
 		0188C97C1591AFF7004A499F /* MOScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOScrollView.h; sourceTree = "<group>"; };
 		0188C97D1591AFF7004A499F /* MOScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOScrollView.m; sourceTree = "<group>"; };
+		018D9C8515E685E00031FE94 /* Warnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +38,7 @@
 				0188C9791591AFF7004A499F /* MOScrollView */,
 				0188C9761591AFF7004A499F /* Frameworks */,
 				0188C9751591AFF7004A499F /* Products */,
+				018D9C8515E685E00031FE94 /* Warnings.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,6 +146,7 @@
 /* Begin XCBuildConfiguration section */
 		0188C97F1591AFF7004A499F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 018D9C8515E685E00031FE94 /* Warnings.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";

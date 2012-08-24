@@ -99,7 +99,7 @@ const static int maximumSteps = 10;
 - (void)updateContentOffset:(CADisplayLink *)displayLink {
 
     // on the first invokation in an animation beginTime is zero
-    if (_beginTime == 0) {
+    if (_beginTime == 0.0) {
 
         _beginTime = displayLink.timestamp;
         _beginContentOffset = self.contentOffset;
@@ -113,17 +113,17 @@ const static int maximumSteps = 10;
         float adjustedRatio;
 
         if (ratio > 1) {
-            adjustedRatio = 1;
+            adjustedRatio = 1.0;
         } else {
             adjustedRatio = timingFunctionValue(_timingFunction, ratio);
         }
 
         if (1 - adjustedRatio < 0.001) {
 
-            adjustedRatio = 1;
+            adjustedRatio = 1.0;
             [_displayLink invalidate];
             _displayLink = nil;
-            _beginTime = 0;
+            _beginTime = 0.0;
         }
 
         CGPoint currentDeltaContentOffset = CGPointMake(_deltaContentOffset.x * adjustedRatio,
@@ -134,7 +134,7 @@ const static int maximumSteps = 10;
 
         self.contentOffset = contentOffset;
 
-        if (adjustedRatio == 1) {
+        if (adjustedRatio == 1.0) {
             // inform delegate about end of animation
             [self.delegate scrollViewDidEndScrollingAnimation:self];
         }
@@ -146,7 +146,7 @@ double cubicFunctionValue(double a, double b, double c, double d, double x) {
     return (a*x*x*x)+(b*x*x)+(c*x)+d;
 }
 
-double cubicDerivativeValue(double a, double b, double c, double d, double x) {
+double cubicDerivativeValue(double a, double b, double c, double __unused d, double x) {
 
     // derivation of the cubic (a*x*x*x)+(b*x*x)+(c*x)+d
     return (3*a*x*x)+(2*b*x)+c;
