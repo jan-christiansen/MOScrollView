@@ -105,17 +105,17 @@ const static int maximumSteps = 10;
         _beginContentOffset = self.contentOffset;
     } else {
 
-        float deltaTime = displayLink.timestamp - _beginTime;
+        CFTimeInterval deltaTime = displayLink.timestamp - _beginTime;
 
         // ratio of duration that went by
-        float ratio = deltaTime / _duration;
+        CGFloat ratio = (CGFloat) (deltaTime / _duration);
         // ratio adjusted by timing function
-        float adjustedRatio;
+        CGFloat adjustedRatio;
 
         if (ratio > 1) {
             adjustedRatio = 1.0;
         } else {
-            adjustedRatio = timingFunctionValue(_timingFunction, ratio);
+            adjustedRatio = (CGFloat) timingFunctionValue(_timingFunction, ratio);
         }
 
         if (1 - adjustedRatio < 0.001) {
