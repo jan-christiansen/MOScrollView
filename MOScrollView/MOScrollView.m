@@ -91,9 +91,11 @@ const static int maximumSteps = 10;
                         displayLinkWithTarget:self
                         selector:@selector(updateContentOffset:)];
         _displayLink.frameInterval = 1;
+        [_displayLink addToRunLoop:[NSRunLoop currentRunLoop]
+                           forMode:NSDefaultRunLoopMode];
+    } else {
+        _displayLink.paused = NO;
     }
-    [_displayLink addToRunLoop:[NSRunLoop currentRunLoop]
-                       forMode:NSDefaultRunLoopMode];
 }
 
 - (void)updateContentOffset:(CADisplayLink *)displayLink {
@@ -121,8 +123,7 @@ const static int maximumSteps = 10;
         if (1 - adjustedRatio < 0.001) {
 
             adjustedRatio = 1.0;
-            [_displayLink invalidate];
-            _displayLink = nil;
+            _displayLink.paused = YES;
             _beginTime = 0.0;
         }
 
