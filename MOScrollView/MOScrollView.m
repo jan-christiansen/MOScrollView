@@ -135,7 +135,9 @@ const static int maximumSteps = 10;
 
         self.contentOffset = contentOffset;
 
-        if (adjustedRatio == 1.0) {
+        if (adjustedRatio == 1.0
+            && self.delegate
+            && [self.delegate respondsToSelector:@selector(scrollViewDidEndScrollingAnimation:)]) {
             // inform delegate about end of animation
             [self.delegate scrollViewDidEndScrollingAnimation:self];
         }
