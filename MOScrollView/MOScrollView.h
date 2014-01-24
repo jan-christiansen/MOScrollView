@@ -38,14 +38,12 @@
 
 #import <UIKit/UIKit.h>
 
-
 /**
  *  Subclass of UIScrollView that, in contrast to UIScrollView, uses a custom
  *  timing function to animate setContentOffset.
  *
  */
 @interface MOScrollView : UIScrollView
-
 
 /// @name Managing the Display of Content
 
@@ -61,7 +59,6 @@
 - (void)setContentOffset:(CGPoint)contentOffset
       withTimingFunction:(CAMediaTimingFunction *)timingFunction;
 
-
 /**
  *  Sets the contentOffset of the ScrollView and animates the transition.
  *
@@ -74,6 +71,5 @@
 - (void)setContentOffset:(CGPoint)contentOffset
       withTimingFunction:(CAMediaTimingFunction *)timingFunction
                 duration:(CFTimeInterval)duration;
-
 
 @end
